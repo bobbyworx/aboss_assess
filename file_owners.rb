@@ -6,6 +6,7 @@
 module FileOwners
 
   def self.group_by_owners(files)
+    return 'Not a valid hash object' if files.nil?
     # I chose each_with_object instead of inject since
     # the same accumulator object (mem) is passed in for each iteration
     # inject would set the accumulator to the return value of the block
@@ -15,10 +16,6 @@ module FileOwners
 
 end
 
-files = {
-  'Input.txt' => 'Randy',
-  'Code.py' => 'Stan',
-  'Output.txt' => 'Randy'
-}
+files = {'Input.txt' => 'Randy', 'Code.py' => 'Stan', 'Output.txt' => 'Randy'}
 
 puts FileOwners.group_by_owners(files)
