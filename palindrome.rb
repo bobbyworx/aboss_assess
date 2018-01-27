@@ -1,19 +1,18 @@
 module Palindrome
 
   def self.is_palindrome(word)
-    # downcasing the word and mutating the object
+    wlength = word.length
+    return true if wlength == 1
+    # downcasing the word mutating the object
     word.downcase!
-    reversed = ''
-    idx = word.length
+    idx = 0
 
-    # iterate through each char starting at the end
-    # and composing our reversed string
-    while idx > 0
-      idx -= 1
-      reversed << word[idx]
+    # compare equality of the word's halfs
+    while idx < wlength / 2
+      return false unless word[idx] == word[wlength - idx -1]
+      idx += 1
     end
-    # ternary checking for string equality
-    (word == reversed) ? true : false
+    true
   end
 
   def self.shorthand_palindrome(word)
