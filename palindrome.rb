@@ -1,9 +1,6 @@
 module Palindrome
 
   def self.is_palindrome(word)
-    # early return if the passed argument consists of a one char string
-    return "#{word} is not a word" if word.length == 1
-
     # downcasing the word and mutating the object
     word.downcase!
     reversed = ''
@@ -20,8 +17,6 @@ module Palindrome
   end
 
   def self.shorthand_palindrome(word)
-    # same as above
-    return "#{word} is not a word" if word.length == 1
     # downcase and mutate the object
     word.downcase!
     # use String#reverse and a ternary to check for string equality
